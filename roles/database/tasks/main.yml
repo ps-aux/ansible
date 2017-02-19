@@ -1,0 +1,10 @@
+- name: Install Postgresql
+  yum: pkg=postgresql-server state=installed update_cache=true
+  register: postgresql_installed
+
+- name: Init Postgresql
+  shell: postgresql-setup initdb
+  args:
+    creates: /var/lib/pgsql/data/PG_VERSION
+  notify:
+      - Start Postgresql

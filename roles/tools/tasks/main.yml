@@ -1,0 +1,12 @@
+- name: install vim
+  yum: pkg=vim  state=installed update_cache=true
+  register: vim_installed
+
+- name: install unzip
+  yum: pkg=unzip  state=installed update_cache=true
+  register: unzip_installed
+  
+- name: install bzip2
+  yum: pkg=bzip2  state=installed update_cache=true
+  register: unzip_installed
+

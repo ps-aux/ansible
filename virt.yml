@@ -1,0 +1,6 @@
+- hosts: virt
+  roles:
+      - database
+      - tools
+      - scrapping
+

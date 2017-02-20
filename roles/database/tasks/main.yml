@@ -1,10 +1,32 @@
-- name: Install Postgresql
-  yum: pkg=postgresql-server state=installed update_cache=true
-  register: postgresql_installed
+- name: install postgresql
+  yum: name=postgresql-server update_cache=true
 
-- name: Init Postgresql
+- name: install postgresql py dependencies
+  yum: name={{item}}
+  with_items:
+      - postgresql-libs
+      - python-psycopg2
+
+- name: init postgresql
   shell: postgresql-setup initdb
   args:
     creates: /var/lib/pgsql/data/PG_VERSION
-  notify:
-      - Start Postgresql
+
+- name: start postgresql
+  service: name=postgresql state=started enabled=true
+
+- name: create database
+  become: yes
+  become_user: postgres
+  postgresql_db: name={{db_name}}
+
+- name: create db user
+  become: yes
+  become_user: postgres
+  postgresql_user:  db={{db_name}} name={{db_user}} password={{db_user_pass}} priv=ALL
+
+- name: setup db env vars
+  template: src=env.sh.j2 dest=/etc/profile.d/db-env.sh
+
+
+

@@ -1,4 +1,4 @@
 - hosts: vps2
   roles:
-      - init
+      - tools
       - database

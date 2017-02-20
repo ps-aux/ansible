@@ -1,0 +1,8 @@
+---
+- name: open web port
+  firewalld:
+    zone: public
+    port: '{{web_port}}/tcp'
+    state: enabled
+    permanent: true
+    immediate: true

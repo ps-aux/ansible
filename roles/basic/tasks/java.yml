@@ -1,0 +1,17 @@
+---
+- name: create download dir
+  file: path=/tmp/downloads state=directory
+
+- name: download java
+  get_url:
+    url: http://download.oracle.com/otn-pub/java/jdk/8u121-b13/e9e7ea248e2c4826b92b3f075a80e441/jdk-8u121-linux-x64.rpm
+    headers: 'Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'
+    dest: /tmp/downloads
+
+- name: install java
+  yum:
+    name: /tmp/downloads/jdk-8u121-linux-x64.rpm
+    state: present
+
+
+

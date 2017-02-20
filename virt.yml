@@ -1,6 +1,9 @@
 - hosts: virt
   roles:
-      - init
-      - database
-      - scrapping
+      - tools
+      - basic
+#      - database
+#      - web
+#      - scrapping
+
 

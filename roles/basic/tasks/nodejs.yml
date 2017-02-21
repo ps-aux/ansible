@@ -1,0 +1,13 @@
+---
+
+# Again having issue with SNI SSL so we use curl here TODO fix
+- name: download node-js setup script
+  shell: curl --silent --location https://rpm.nodesource.com/setup_7.x | bash - >> /tmp/node-install.out
+  args:
+    creates: /tmp/node-install.out
+
+- name: install node-js
+  yum: name=nodejs state=present update_cache=true
+
+
+

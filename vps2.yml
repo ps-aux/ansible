@@ -1,9 +1,9 @@
 - hosts: vps2
   roles:
-      - tools
+#      - tools
       - basic
-      - ci
-      - web
+#      - ci
+#      - web
 #      - database
 #      - scrapping
 

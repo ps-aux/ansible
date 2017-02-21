@@ -1,16 +1,11 @@
 ---
 - name: install vim
-  yum: pkg=vim  state=installed update_cache=true
-
-- name: install unzip
-  yum: pkg=unzip  state=installed
-
-- name: install bzip2
-  yum: pkg=bzip2  state=installed
-
-- name: install nc
-  yum: pkg=nc  state=installed
-
-- name: install wget
-  yum: pkg=wget  state=installed
+  yum: pkg={{item}}  state=installed update_cache=true
+  with_items:
+    - vim
+    - unzip
+    - bzip2
+    - nc
+    - wget
+    - git
 

@@ -1,9 +1,9 @@
 - hosts: virt
   roles:
-      - tools
+#      - tools
       - basic
-      - ci
-      - web
+#      - ci
+#      - web
 #      - database
 #      - scrapping
 

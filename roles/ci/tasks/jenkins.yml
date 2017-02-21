@@ -4,10 +4,11 @@
     url: http://pkg.jenkins-ci.org/redhat/jenkins.repo
     dest: /etc/yum.repos.d/jenkins.repo
 
+# We cannot user rpm_key bcs it has problems with SNI SSL for
+# Python < 2.7.9
+# TODO move to rpm_key when CentOS 7 is with newer Python
 - name: import jenkins rpm key
-  rpm_key:
-    state: present
-    key: https://jenkins-ci.org/redhat/jenkins-ci.org.key
+  command: rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
 
 - name: install jenkins
   yum: pkg=jenkins state=installed update_cache=true

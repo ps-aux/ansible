@@ -1,3 +1,5 @@
 ---
-- include:  java.yml
+- include: epel.yml
+- include: python.yml
+- include: java.yml
 

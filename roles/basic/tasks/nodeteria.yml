@@ -1,0 +1,7 @@
+---
+# TODO use module ?
+- name: resize the disk to full capacity
+  command: resize2fs /dev/vda1
+
+
+

@@ -1,2 +1,3 @@
 ---
-- include:  jenkins.yml
+- name: install ansible
+  yum: name=ansible update_cache=true

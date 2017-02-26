@@ -16,5 +16,5 @@
   register: fontconfig_installed
 
 - name: setup phantomjs env vars
-  template: src=env.sh.j2 dest=/etc/profile.d/phantomjs-env.sh
+  template: src=env.j2 dest=/etc/env/phantomjs
 

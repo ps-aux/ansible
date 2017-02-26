@@ -1,3 +1,4 @@
+
 - name: install postgresql
   yum: name=postgresql-server update_cache=true
 
@@ -23,10 +24,14 @@
 - name: create db user
   become: yes
   become_user: postgres
-  postgresql_user:  db={{db_name}} name={{db_user}} password={{db_user_pass}} priv=ALL
+  postgresql_user:
+    db: '{{db_name}}'
+    name: '{{db_user}}'
+    password: '{{db_user_pass}}'
+    priv: ALL
 
 - name: setup db env vars
-  template: src=env.sh.j2 dest=/etc/profile.d/db-env.sh
+  template: src=env.j2 dest=/etc/env/db
 
 
 

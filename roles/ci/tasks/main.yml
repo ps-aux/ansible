@@ -1,3 +1,4 @@
 ---
+- include: local_ssh.yml
 - name: install ansible
   yum: name=ansible update_cache=true

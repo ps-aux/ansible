@@ -1,0 +1,12 @@
+---
+# Creating & adding key for localhost deployments
+- name: create ssh key
+  command: ssh-keygen -b 2048 -t rsa -f /root/.ssh/id_rsa -q -N ""
+  args:
+    creates: /root/.ssh/id_rsa
+
+- name: add local ssh key to the authorized keys
+  shell: cat /root/.ssh/id_rsa.pub >> authorized_keys && touch local-key-added
+  args:
+    creates:  /root/.ssh/local-key-added
+

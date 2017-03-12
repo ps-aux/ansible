@@ -2,9 +2,9 @@
   roles:
       - basic
       - tools
-      - ci
+#      - ci
 #      - web
-#      - database
+      - database
       - scrapping
 
 

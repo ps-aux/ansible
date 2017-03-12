@@ -2,6 +2,7 @@
 - name: install postgresql
   yum: name=postgresql-server update_cache=true
 
+
 - name: install postgresql py dependencies
   yum: name={{item}}
   with_items:
@@ -12,6 +13,9 @@
   shell: postgresql-setup initdb
   args:
     creates: /var/lib/pgsql/data/PG_VERSION
+
+- name: setup pg_hba.conf
+  template: src=pg_hba.conf.j2 dest=/var/lib/pgsql/data/pg_hba.conf
 
 - name: start postgresql
   service: name=postgresql state=started enabled=true

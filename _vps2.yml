@@ -1,0 +1,7 @@
+- hosts: virt
+  roles:
+      - basic
+      - tools
+      - docker
+
+

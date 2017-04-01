@@ -1,6 +1,6 @@
 ---
 - name: install epel
-  yum: pkg=epel-release state=installed update_cache=true
+  yum: pkg=epel-release state=installed
 
 
 

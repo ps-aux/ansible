@@ -2,4 +2,5 @@
 - name: install utils
   yum: name={{item}}
   with_items:
-    - expect #bcs of makepasswd
+#    - expect #bcs of makepasswd
+    - yum-utils

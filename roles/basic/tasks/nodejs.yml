@@ -7,7 +7,7 @@
     creates: /tmp/node-install.out
 
 - name: install node-js
-  yum: name=nodejs state=present update_cache=true
+  yum: name=nodejs state=present
 
 
 

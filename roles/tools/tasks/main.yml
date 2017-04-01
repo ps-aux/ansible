@@ -1,5 +1,5 @@
 ---
-- name: install vim
+- name: install basic tools
   yum: pkg={{item}}  state=installed update_cache=true
   with_items:
     - vim

@@ -6,10 +6,23 @@
 
 - name: install Docker
   yum:
-    name: docker
+    name: docker-ce
     state: present
     update_cache: true
-
 - name: start Docker
   service: name=docker state=started enabled=true
+
+- name: add docker0 if to the trusted ifs
+  firewalld:
+    zone: trusted
+    interface: docker0
+    state: enabled
+    permanent: true
+  register: docker0-setup
+
+  #TODO why does not the zone change work without this ??
+- name: restart firewalld service
+  when: docker0-setup is defined
+  service:
+    state: restarted
 

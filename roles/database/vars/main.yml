@@ -1,4 +1,7 @@
 ---
-db_name: test
-db_user: bfu
+# This must be provided by the playbook
+#db_name: test
+#db_user: bfu
+#db_ifs: [ 'localhost', '172.17.0.1'] #Docker
+
 db_user_pass: "{{ lookup('password', '/tmp/passwordfile chars=ascii_letters') }}"

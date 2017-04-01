@@ -1,0 +1,10 @@
+- hosts: virt
+  vars:
+    db_name: lunchgator
+    db_user: lunchgator
+    db_ifs: [ 'localhost', '172.17.0.1'] #Docker
+  roles:
+      - basic
+      - tools
+#      - docker
+      - database

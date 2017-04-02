@@ -4,4 +4,4 @@
 #db_user: bfu
 #db_ifs: [ 'localhost', '172.17.0.1'] #Docker
 
-#db_user_pass: "{{ lookup('password', '/tmp/passwordfile chars=ascii_letters') }}"
+db_user_pass: "{{ lookup('password', '/tmp/passwordfile chars=ascii_letters') }}"

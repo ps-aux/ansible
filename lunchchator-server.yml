@@ -6,5 +6,6 @@
   roles:
       - basic
       - tools
-#      - docker
+      - docker
       - database
+      - spring-boot

@@ -1,10 +1,12 @@
 - hosts: virt
+  vars:
+    domain: virt1
   roles:
-      - basic
-      - tools
+#      - basic
+#      - tools
 #      - ci
-#      - web
-      - database
-      - scrapping
+      - web
+#      - database
+#      - scrapping
 
 

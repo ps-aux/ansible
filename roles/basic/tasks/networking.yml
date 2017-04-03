@@ -1,0 +1,8 @@
+
+- name: install networking stuff
+  yum: name={{ item }}
+  with_items:
+    - firewalld
+
+- name: start firewalld
+  service: name=firewalld state=started enabled=true

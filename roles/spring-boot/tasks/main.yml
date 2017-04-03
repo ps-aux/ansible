@@ -1,3 +1,9 @@
-- name: setup pg_hba.conf
-  template: src=sb-env.j2 dest=/etc/env/sb-env
+- name: create conf dir
+  file:
+    path: /etc/my-conf/{{ app.name }}/sb-env
+    state: directory
+    recurse: true
+
+- name: setup env conf file
+  template: src=sb-env.j2 dest=/etc/my-conf/{{ app.name }}/sb-env
 

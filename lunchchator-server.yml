@@ -1,7 +1,9 @@
-- hosts: virt
+- hosts: vps3
   vars:
-    db_name: lunchgator
-    db_user: lunchgator
+    app:
+      name: lunchgator
+    db_name: '{{ app.name }}'
+    db_user: '{{ app.name }}'
     db_ifs: [ 'localhost', '172.17.0.1'] #Docker
   roles:
       - basic

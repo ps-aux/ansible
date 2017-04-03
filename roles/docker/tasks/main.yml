@@ -18,11 +18,10 @@
     interface: docker0
     state: enabled
     permanent: true
-  register: docker0-setup
+  register: docker0_setup
 
   #TODO why does not the zone change work without this ??
 - name: restart firewalld service
-  when: docker0-setup is defined
-  service:
-    state: restarted
+  when: docker0_setup is defined
+  service: name=firewalld state=restarted
 

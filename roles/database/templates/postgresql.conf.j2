@@ -57,7 +57,7 @@
 # - Connection Settings -
 
 # Listen on docker as well
-listen_addresses = '{{ db_ifs|join(',') }}'		# what IP address(es) to listen on;
+listen_addresses = '{{ db.interfaces|join(',') }}'		# what IP address(es) to listen on;
 					# comma-separated list of addresses;
 					# defaults to 'localhost'; use '*' for all
 					# (change requires restart)

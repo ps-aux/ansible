@@ -26,15 +26,15 @@
 - name: create database
   become: yes
   become_user: postgres
-  postgresql_db: name={{db_name}}
+  postgresql_db: name={{ db.name }}
 
 - name: create db user
   become: yes
   become_user: postgres
   postgresql_user:
-    db: '{{db_name}}'
-    name: '{{db_user}}'
-    password: '{{db_user_pass}}'
+    db: '{{ db.name }}'
+    name: '{{ db.user }}'
+    password: '{{ db.pass }}'
     priv: ALL
 
 - name: setup db env vars

@@ -2,12 +2,16 @@
   vars:
     app:
       name: lunchgator
-    db_name: '{{ app.name }}'
-    db_user: '{{ app.name }}'
-    db_ifs: [ 'localhost', '172.17.0.1'] #Docker
+    web:
+      name: '{{ app.name }}'
+      port: 8080
+    db:
+      user: '{{ app.name }}'
+      intefaces: [ 'localhost', '172.17.0.1'] #Docker
   roles:
-      - basic
-      - tools
-      - docker
+#      - basic
+#      - tools
+#      - docker
+      - web
       - database
       - spring-boot

@@ -12,22 +12,21 @@
     path: /etc/nginx/sites-available
     state: directory
 
-- name: setup root site
-  template: src=sites/root.j2 dest=/etc/nginx/sites-available/root
+- name: setup app site
+  template: src=app-site.j2 dest=/etc/nginx/sites-available/{{ web.name }}
 
 # If getting 'connect() to 127.0.0.1:some-port failed (13: Permission denied) while connecting to upstream'
 # Then running setsebool -P httpd_can_network_connect 1 should help
-
 
 - name: start Nginx
   service:
     name: nginx
     state: started
 
-- name: open web port
+- name: open web port for Nginx
   firewalld:
     zone: public
-    port: '{{web_port}}/tcp'
+    port: '80/tcp'
     state: enabled
     permanent: true
     immediate: true

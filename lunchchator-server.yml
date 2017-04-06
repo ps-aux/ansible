@@ -3,15 +3,16 @@
     app:
       name: lunchgator
     web:
-      name: '{{ app.name }}'
+      name: api.{{ app.name }}
       port: 8080
     db:
+      name: '{{ app.name }}'
       user: '{{ app.name }}'
-      intefaces: [ 'localhost', '172.17.0.1'] #Docker
+      interfaces: [ 'localhost', '172.17.0.1'] #Docker
   roles:
-#      - basic
-#      - tools
-#      - docker
+      - basic
+      - tools
+      - docker
       - web
       - database
       - spring-boot

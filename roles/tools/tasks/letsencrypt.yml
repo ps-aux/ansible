@@ -1,0 +1,9 @@
+---
+# Currently this only installs certbot
+# Actual certificate must be retrieved manually by running certbot certonly
+
+- name: install certbot
+  yum:
+    name: certbot
+    state: present
+

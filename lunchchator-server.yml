@@ -2,17 +2,21 @@
   vars:
     app:
       name: lunchgator
+    web_name: api.{{ app.name }}
     web:
-      name: api.{{ app.name }}
+      name: '{{ web_name }}'
       port: 8080
+      cert:
+        path: /etc/letsencrypt/live/{{ web_name }}.absolutne.pro/cert.pem
+        key_path: /etc/letsencrypt/live/{{ web_name }}.absolutne.pro/privkey.pem
     db:
       name: '{{ app.name }}'
       user: '{{ app.name }}'
       interfaces: [ 'localhost', '172.17.0.1'] #Docker
   roles:
-      - basic
-      - tools
-      - docker
+#      - basic
+#      - tools
+#      - docker
       - web
-      - database
-      - spring-boot
+#      - database
+#      - spring-boot

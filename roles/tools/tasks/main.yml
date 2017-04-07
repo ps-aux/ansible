@@ -10,3 +10,4 @@
     - git
     - bash-completion
 
+- include: letsencrypt.yml

@@ -1,6 +1,7 @@
 ---
 # Currently this only installs certbot
 # Actual certificate must be retrieved manually by running certbot certonly
+# Find in stdout locations of key & cert files and use them in web task (include in a template)
 
 - name: install certbot
   yum:

@@ -1,15 +1,22 @@
 ---
-- name: add Docker yum repo
+- name: add docker yum repo
   command: yum-config-manager --add-repo  https://download.docker.com/linux/centos/docker-ce.repo
   args:
     creates: /etc/yum.repos.d/docker-ce.repo
 
-- name: install Docker
+- name: install docker
   yum:
     name: docker-ce
     state: present
     update_cache: true
-- name: start Docker
+
+- name: install docker-compose
+  yum:
+    name: docker-compose
+    state: present
+    update_cache: true
+
+- name: start docker
   service: name=docker state=started enabled=true
 
 - name: add docker0 if to the trusted ifs

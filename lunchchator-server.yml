@@ -6,6 +6,7 @@
     web:
       name: '{{ web_name }}'
       port: 8080
+      https: true
       cert:
         path: /etc/letsencrypt/live/{{ web_name }}.absolutne.pro/cert.pem
         key_path: /etc/letsencrypt/live/{{ web_name }}.absolutne.pro/privkey.pem
@@ -16,7 +17,7 @@
   roles:
 #      - basic
 #      - tools
-#      - docker
-      - web
+      - docker
+#      - web
 #      - database
 #      - spring-boot

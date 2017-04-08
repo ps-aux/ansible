@@ -1,8 +1,9 @@
 server {
     server_name {{ web.name }}.absolutne.pro;
-    listen 443 ssl;
     listen 80;
 
+    {% if web.https %}
+    listen 443 ssl;
 
     ssl_certificate {{ web.cert.path }};
     ssl_certificate_key {{ web.cert.key_path }};
@@ -11,6 +12,7 @@ server {
     if ($scheme = http) {
         return 301 https://$server_name$request_uri;
     }
+    {% endif %}
 
     location / {
         proxy_set_header X-Forwarded-Host $host;

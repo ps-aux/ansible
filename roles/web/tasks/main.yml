@@ -16,3 +16,4 @@
     state: enabled
     permanent: true
     immediate: true
+  when: web.https

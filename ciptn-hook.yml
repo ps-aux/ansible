@@ -1,0 +1,20 @@
+- hosts: vps3
+  vars:
+    app:
+      name: cipt-hook
+      repo: https://github.com/ps-aux/ciptn-hook.git
+    web:
+      name: '{{ app.name }}'
+      port: 3100
+    db:
+      name: test
+      user: test
+
+  roles:
+#      - basic
+#      - tools
+#      - web
+       - database
+#      - nodejs-app
+#      - database
+#      - spring-boot

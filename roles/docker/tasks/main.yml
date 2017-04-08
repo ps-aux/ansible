@@ -11,10 +11,8 @@
     update_cache: true
 
 - name: install docker-compose
-  yum:
+  pip:
     name: docker-compose
-    state: present
-    update_cache: true
 
 - name: start docker
   service: name=docker state=started enabled=true

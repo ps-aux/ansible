@@ -2,7 +2,7 @@
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/node {{dir_path}}/server.js
+ExecStart={{dir_path}}/start
 Restart=always
 StandardOutput=syslog
 StandardError=syslog

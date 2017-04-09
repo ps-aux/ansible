@@ -1,20 +1,15 @@
 - hosts: vps3
   vars:
     app:
-      name: cipt-hook
+      name: ciptn-hook
       repo: https://github.com/ps-aux/ciptn-hook.git
     web:
-      name: '{{ app.name }}'
+      name: ci
       port: 3100
-    db:
-      name: test
-      user: test
+      https: false #TODO why default val is not taken from web role ??
 
   roles:
 #      - basic
 #      - tools
-#      - web
-       - database
-#      - nodejs-app
-#      - database
-#      - spring-boot
+      - web
+      - nodejs-app

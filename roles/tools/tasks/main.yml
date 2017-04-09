@@ -1,6 +1,6 @@
 ---
 - name: install basic tools
-  yum: pkg={{item}}  state=installed update_cache=true
+  yum: pkg={{item}}  state=installed
   with_items:
     - vim
     - unzip
@@ -11,3 +11,4 @@
     - bash-completion
 
 - include: letsencrypt.yml
+- include: zsh.yml

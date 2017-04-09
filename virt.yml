@@ -3,9 +3,9 @@
     domain: virt1
   roles:
 #      - basic
-#      - tools
+      - tools
 #      - ci
-      - web
+#      - web
 #      - database
 #      - scrapping
 

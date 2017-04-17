@@ -36,9 +36,3 @@
     name: '{{ db.user }}'
     password: '{{ db.pass }}'
     priv: ALL
-
-- name: setup db env vars
-  template: src=env.j2 dest=/etc/env/db
-
-
-

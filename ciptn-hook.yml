@@ -6,10 +6,10 @@
     web:
       name: ci
       port: 3100
-      https: false #TODO why default val is not taken from web role ??
+      https: false #TODO why default val is not taken from the web role ??
 
   roles:
-#      - basic
-#      - tools
+      - basic
+      - tools
       - web
       - nodejs-app

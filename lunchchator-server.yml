@@ -13,11 +13,18 @@
     db:
       name: '{{ app.name }}'
       user: '{{ app.name }}'
+      pass: '{{ lookup("password", "/tmp/passwordfile chars=ascii_letters") }}'
       interfaces: [ 'localhost', '172.17.0.1'] #Docker
+    env:
+      LUNCHGATOR_DB_JDBC_URL: jdbc:postgresql://172.17.0.1:5432/{{ db.name }}
+      LUNCHGATOR_DB_USER: '{{ db.user }}'
+      LUNCHGATOR_DB_PASS: '{{ db.pass }}'
+      LUNCHGATOR_PORT: '{{ web.port }}'
   roles:
-#      - basic
-#      - tools
+      - basic
+      - tools
+      - conf-file
       - docker
-#      - web
-#      - database
-#      - spring-boot
+      - web
+      - database
+      - spring-boot

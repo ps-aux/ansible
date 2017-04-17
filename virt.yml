@@ -1,9 +1,11 @@
 - hosts: virt
   vars:
-    domain: virt1
+    app:
+      name: ebenezer
   roles:
 #      - basic
-      - tools
+      #- tools
+      - conf-file
 #      - ci
 #      - web
 #      - database

@@ -1,0 +1,10 @@
+---
+
+- name: create conf dir
+  file:
+    path: '{{ conf_dir }}'
+    state: directory
+
+- name: add conf file
+  template: src=conf.j2 dest={{ conf_dir }}/{{ app.name }}
+

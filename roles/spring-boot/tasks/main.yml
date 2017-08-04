@@ -1,9 +1,0 @@
-- name: create conf dir
-  file:
-    path: /etc/my-conf/{{ app.name }}
-    state: directory
-    recurse: true
-
-- name: setup env conf file
-  template: src=env.conf.j2 dest=/etc/my-conf/{{ app.name }}/env.conf
-

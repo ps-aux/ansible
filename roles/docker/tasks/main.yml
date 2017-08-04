@@ -1,4 +1,13 @@
 ---
+
+  # https://docs.docker.com/engine/installation/linux/docker-ce/centos/#install-using-the-repository
+- name: install required yum packages
+  yum: name={{ item }} state=present
+  with_items:
+    - yum-utils
+    - device-mapper-persistent-data
+    - lvm2
+
 - name: add docker yum repo
   command: yum-config-manager --add-repo  https://download.docker.com/linux/centos/docker-ce.repo
   args:
@@ -23,10 +32,6 @@
     interface: docker0
     state: enabled
     permanent: true
-  register: docker0_setup
+  notify: restart firewalld
 
-  #TODO why does not the zone change work without this ??
-- name: restart firewalld service
-  when: docker0_setup is defined
-  service: name=firewalld state=restarted
 

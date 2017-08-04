@@ -1,0 +1,5 @@
+---
+dependencies:
+  - basic/setup
+  - basic/tools
+  - basic/runtimes

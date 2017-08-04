@@ -1,5 +1,0 @@
----
-- name: create /etc/env dir
-  file:
-    path: /etc/env
-    state: directory

@@ -1,7 +1,0 @@
-- hosts: vps3
-  gather_facts: false
-  roles:
-      - basic
-#      - tools
-      - docker
-

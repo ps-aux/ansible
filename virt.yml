@@ -3,9 +3,9 @@
     app:
       name: ebenezer
   roles:
-#      - basic
-      #- tools
-      - conf-file
+#      - composites/generic
+      - docker
+#      - conf-file
 #      - ci
 #      - web
 #      - database

@@ -1,9 +1,6 @@
 ---
 - include: utils.yml
-- include: dirs.yml
 - include: epel.yml
 - include: python.yml
-- include: java.yml
-- include: nodejs.yml
 - include: networking.yml
 

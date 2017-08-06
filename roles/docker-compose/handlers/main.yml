@@ -1,0 +1,7 @@
+---
+- name: run docker-compose up
+  command: docker-compose up -d
+  args:
+    chdir: "{{ path }}"
+  register: res
+  changed_when: "'is up-to-date' in res.stdout"

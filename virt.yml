@@ -4,8 +4,8 @@
       name: ebenezer
   roles:
 #      - composites/generic
-      - docker
-#      - conf-file
+#      - docker
+      -  docker-compose
 #      - ci
 #      - web
 #      - database

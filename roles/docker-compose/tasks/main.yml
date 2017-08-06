@@ -1,0 +1,14 @@
+---
+  - name: create dirs
+    file: path={{ item }} state=directory
+    with_items:
+      - "{{ path }}"
+
+  - name: copy docker-compose.yml
+    template:
+      src: docker-compose.yml
+      dest: "{{ path }}"
+    notify: run docker-compose up
+
+
+
